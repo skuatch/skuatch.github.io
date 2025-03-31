@@ -45,7 +45,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
               "optimization": false,
@@ -55,7 +56,13 @@
           },
           "defaultConfiguration": "production"
         },
+        "serviceWorker": true,
         "serve": {
+          "options": {
+            "ssl": true,
+            "sslKey": "D:/cert/clovisTechKey.pem",
+            "sslCert": "D:/cert/clovisTechCert.pem"
+          },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
@@ -89,6 +96,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
