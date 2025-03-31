@@ -1,0 +1,62 @@
+.valentine-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffe0f0, #ffccd5);
+  overflow: hidden;
+  position: relative;
+}
+
+.heart {
+  font-size: 120px;
+  color: red;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: spin 10s linear infinite, pulse 2s ease-in-out infinite;
+}
+
+.heart span {
+  font-size: 30px;
+  color: #ff69b4;
+  margin-top: 10px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-shadow: 1px 1px 2px #ff4081;
+}
+
+/* Spin */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Pulse */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Sparkles */
+.sparkles::before, .sparkles::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 2px, transparent 2px);
+  background-size: 20px 20px;
+  animation: moveSparkles 30s linear infinite;
+  pointer-events: none;
+}
+
+.sparkles::after {
+  animation-delay: 15s;
+  opacity: 0.5;
+}
+
+@keyframes moveSparkles {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50%, -50%); }
+}
